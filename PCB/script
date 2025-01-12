@@ -1,0 +1,21 @@
+import pcbnew
+
+# Get the current board
+board = pcbnew.GetBoard()
+
+# Iterate through all zones in the board
+for zone in board.Zones():
+    zone_settings = zone.GetSettings()
+    
+    # Check if the zone is currently hatched
+    if zone_settings.m_FillMode == pcbnew.ZONE_FILL_MODE_HATCHED:
+        print(f"Changing zone on net {zone.GetNetname()} from Hatched to Line fill.")
+        # Change the fill mode to line fill
+        zone_settings.m_FillMode = pcbnew.ZONE_FILL_MODE_LINES
+        
+        # Reapply the settings
+        zone.MarkAsModified()
+
+# Refresh the PCB view
+pcbnew.Refresh()
+print("All zones with Hatched fill mode have been updated to Line fill.")
