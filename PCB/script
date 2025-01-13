@@ -19,3 +19,4 @@ for zone in board.Zones():
 # Refresh the PCB view
 pcbnew.Refresh()
 print("All zones with Hatched fill mode have been updated to Line fill.")
+
