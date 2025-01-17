@@ -60,5 +60,3 @@ The project consists of the following stages:
 This project is conducted under the guidance of my lecturer, who provides valuable insights to ensure efficient use of time and resources.
 
 ---
-
-Feel free to explore, contribute, or reach out for discussions about this project!
