@@ -31,10 +31,15 @@ int main()
     for (int i = 0; i < rows; i++) {
 
         for (int j = 0; j < cols; j++) {
-            if (j==0 || j == 3){
+            if (j==0){
+                
+            printf("%6.0f ", buffer[i][j]); //readings less decimal points
+        }
+         else if (j == 3){
                 
             printf("%6.2f ", buffer[i][j]); //readings less decimal points
         }
+
         else{
               printf("%6.10f ", buffer[i][j]); //readings need more decimal points
         }     
