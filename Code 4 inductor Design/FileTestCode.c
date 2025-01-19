@@ -37,9 +37,9 @@ int main()
         }
         else{
               printf("%6.10f ", buffer[i][j]); //readings need more decimal points
-        }
-        printf("\n");
+        }     
     }
+    printf("\n");
     }
     return 0;
 }
