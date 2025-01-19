@@ -1,5 +1,6 @@
 
 #include <stdio.h>
+#include <math.h>
         float MPL;
         float MLT;
         float Ac;
@@ -11,7 +12,6 @@
         float Aws;
         float Wa;
         float ku;
-        float Ap;
         float J;
         float Kg;
         float Ke;
@@ -20,16 +20,10 @@
         float N;
         float Wae;
         float Ipeak;
-        float L;
-        float Imax ;
-        float Imin;
-        float Idc;
-        float dI;
-        float Pout;
-        float F;
-        float Bm;
-        float Ku;
         float E;
+        
+        float L,Imax,Imin,Idc,dI,Pout,F,Bm,Ku;
+       
 
         void Step1(){
 
@@ -63,16 +57,34 @@ scanf("%f", &Ku);
     }
 
     void Step2(){
+        
+    if(dI==0){
+         dI = Imax - Imin;
+    }
+        
+    if(Imax == 0){
+            if(Idc>0){
+                 Ipeak = Idc+(dI/2);
+            }
+            else {
+                 Ipeak = Imin + dI;
+            }
+          
+        }
+        
+    if(Imax > 0){
         Ipeak = Imax;
-        Ipeak = Idc+dI/2;
+        Idc = Imax - (dI/2);
+        }
+        
     }
+       
+       
     
-    void dI_value(){
-        dI = Imax- Imin;
-    }
     
      void Step3(){
         E = (L*Ipeak*Ipeak)/2;
+        printf("Energy : %f \n",E);
     }
     
      void Step4(){
@@ -85,49 +97,77 @@ scanf("%f", &Ku);
     
       void Step6(){
           //ETD FILEs
-        float MPL=9.22;
-        float MLT=8.3;
-        float Ac=1.252;
-        float Wa=2.34;
-        float Ap=2.93;
+         MPL=9.22;
+         MLT=8.3;
+         Ac=1.252;
+         Wa=2.34;
+        Ap=2.93;
 
 
     }
     
      void Step7(){
-        J = 2*(E)*(10000)/(Bm*Ap*ku);
+        J = (2*(E)*(10000))/((Bm*Ap*Ku));
+          printf("Current Desnsity : %f \n",J);
     }
     
        void Step8(){
         Irms = sqrt((Idc*Idc) + (dI*dI));
+          printf("Current RMS : %f \n",Irms);
     }
     
        void Step9(){
         Awbc = Irms/J;
-        
+          printf("Wire needed : %f \n",Awbc);
     }
       void Step10(){
        //WIRE TABLES
-       float Awb=0.00653;
-       float Aws = 0.00754;
-       float Wr = 264;
+       Awb=0.00653;
+       Aws = 0.00754;
+       Wr = 264;
     }
     
       void Step11(){
          Wae = Wa*0.75;
+         printf("Effective window :%f \n",Wae);
         
     }
     
      void Step12(){
          N = Wae*0.6/Aws;
+         printf(" Turns : %f \n",N);
         
     }
     
-    
+     void DoMath(){
+        
+         Step2();
+         Step3();
+         Step4();
+         Step5();
+         Step6();
+         Step7();
+         Step8();
+         Step9();
+         Step10();
+         Step11();
+         Step12();
+       printf("%f",N);
+        
+    }
+
 int main()
 {
-     Step1();
-  
-  
+    L=0.0025;
+    Imax= 0;
+    Idc = 1.5;
+    dI=0.25;
+    Pout = 100;
+    F = 200000;
+    Bm = 0.22;
+    Ku = 0.4;
+    
+     DoMath();
+     
     return 0;
 }
