@@ -20,16 +20,17 @@
         float N;
         float Wae;
         float Ipeak;
-        float L = 0;
-        float Imax = 0;
-        float Imin = 0;
-        float Idc = 0;
-        float dI = 0;
-        float Pout = 0;
-        float F = 0;
-        float Bm = 0;
-        float Ku = 0;
+        float L;
+        float Imax ;
+        float Imin;
+        float Idc;
+        float dI;
+        float Pout;
+        float F;
+        float Bm;
+        float Ku;
         float E;
+
         void Step1(){
 
        // Prompt the user to input the following values
@@ -59,7 +60,6 @@ scanf("%f", &Bm);
 
 printf("Enter the utilization factor (Ku): ");
 scanf("%f", &Ku);
-
     }
 
     void Step2(){
@@ -85,11 +85,13 @@ scanf("%f", &Ku);
     
       void Step6(){
           //ETD FILEs
-        float MPL;
-        float MLT;
-        float Ac;
-        float Wa;
-        float Ap;
+        float MPL=9.22;
+        float MLT=8.3;
+        float Ac=1.252;
+        float Wa=2.34;
+        float Ap=2.93;
+
+
     }
     
      void Step7(){
@@ -97,7 +99,7 @@ scanf("%f", &Ku);
     }
     
        void Step8(){
-        Irms = sqart((Idc*Idc) + (dI*dI));
+        Irms = sqrt((Idc*Idc) + (dI*dI));
     }
     
        void Step9(){
@@ -106,9 +108,9 @@ scanf("%f", &Ku);
     }
       void Step10(){
        //WIRE TABLES
-       float Awb;
-       float Aws;
-       float Wr;
+       float Awb=0.00653;
+       float Aws = 0.00754;
+       float Wr = 264;
     }
     
       void Step11(){
