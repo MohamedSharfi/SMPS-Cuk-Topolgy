@@ -121,10 +121,11 @@ scanf("%f", &Ku);
           printf("Wire needed : %f \n",Awbc);
     }
       void Step10(){
+        
        //WIRE TABLES
-       Awb=0.00653;
-       Aws = 0.00754;
-       Wr = 264;
+       Awb=0.01651;
+       Aws = 0.01837;
+       Wr = 104.3;
     }
     
       void Step11(){
