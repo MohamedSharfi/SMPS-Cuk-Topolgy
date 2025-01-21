@@ -123,8 +123,8 @@ scanf("%f", &Ku);
       void Step10(){
         
        //WIRE TABLES
-       Awb=0.01651;
-       Aws = 0.01837;
+       Awb=0.00653;
+       Aws = 0.00754;
        Wr = 104.3;
     }
     
