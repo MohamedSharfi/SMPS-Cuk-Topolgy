@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1738025726 source:e:\my cvs\github\smps---ic-vs-traditional\codewcodeblock\inductordesign\main.c
+	<stdio.h>
+	<math.h>
+
+1738028853 source:e:\my cvs\github\smps---ic-vs-traditional\codewcodeblock\inductordesign\filecode.c
+	<stdio.h>
+
+1738029813 source:e:\my cvs\github\smps---ic-vs-traditional\codewcodeblock\inductordesign\maintarget.c
+	<stdio.h>
+	<math.h>
+
